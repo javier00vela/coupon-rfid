@@ -1,0 +1,30 @@
+version: '3.5'
+services:
+  api-python:
+    build:
+      context: ./api
+    ports:
+     - "5000:5000"
+    volumes:
+      - ./api:/api
+    command: flask run --host=0.0.0.0
+  frontend:
+    build: 
+      context: ./public
+    environment:
+      NODE_ENV: production
+    ports:
+      - 8080:8080
+  mysqldb:
+    image: mysql
+    ports:
+    - 3306:3306
+    environment:
+    - MYSQL_ROOT_PASSWORD=p@ssw0rd1
+    - MYSQL_DATABASE=coupon_db
+    volumes:
+    - mysql:/var/lib/mysql
+    - mysql_config:/etc/mysql
+volumes:
+  mysql:
+  mysql_config:
