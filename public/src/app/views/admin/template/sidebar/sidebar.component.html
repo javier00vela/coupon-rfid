@@ -1,0 +1,10 @@
+<div class="sidebar-div">
+    <div class="content-response">
+        <div class="app-sidebar">
+            <a *ngFor="let item of routes" class="app-sidebar-link" [routerLink]="[item.route]" [routerLinkActive]="'active'">
+                <i [class]="'link-icon fa fa-'+item.icon" ></i>
+            </a>
+           
+        </div>
+    </div>
+</div>

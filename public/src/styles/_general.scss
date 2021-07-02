@@ -1,0 +1,42 @@
+
+* {
+    box-sizing: border-box;
+  }
+  
+  :root {
+    --app-container: #f3f6fd;
+    --main-color: #1f1c2e;
+    --secondary-color: #4A4A4A;
+    --link-color: #1f1c2e;
+    --link-color-hover: #c3cff4;
+    --link-color-active: #fff;
+    --link-color-active-bg: #200444;
+    --projects-section: #fff;
+    --message-box-hover: #fafcff;
+    --message-box-border: #e9ebf0;
+    --more-list-bg: #fff;
+    --more-list-bg-hover:  #f6fbff;
+    --more-list-shadow: rgba(209, 209, 209, 0.4);
+    --button-bg: #1f1c24;
+    --search-area-bg: #fff;
+    --star: #1ff1c2e;
+    --message-btn: #fff;
+  }
+  
+  html, body {
+    width: 100%;
+    height: 100vh;
+    margin: 0;
+    flex: 0 !important;
+  }
+  
+  body {
+    font-family: 'DM Sans', sans-serif;
+    overflow: hidden;
+    justify-content: center;
+    background-color: var(--app-container);
+  }
+
+  button, a {
+    cursor: pointer;
+  }
