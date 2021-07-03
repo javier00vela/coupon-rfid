@@ -5,7 +5,7 @@ import { AppComponent } from './app.component';
 import { LoginComponent } from './views/login/login.component';
 import { ClientComponent } from './views/client/client.component';
 import { AdminModule } from './views/admin/admin.module';
-
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 @NgModule({
   declarations: [
     AppComponent,
@@ -15,7 +15,9 @@ import { AdminModule } from './views/admin/admin.module';
   imports: [
     BrowserModule,
     AdminModule,
-    AppRoutingModule
+    FormsModule,                           
+    ReactiveFormsModule,    
+    AppRoutingModule,
   ],
   schemas:[
     CUSTOM_ELEMENTS_SCHEMA

@@ -1,0 +1,4 @@
+pyserial==3.5
+serial==0.0.97
+python-engineio==3.14.2
+python-socketio==4.3.1

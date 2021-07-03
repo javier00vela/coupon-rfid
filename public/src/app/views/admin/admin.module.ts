@@ -7,6 +7,10 @@ import { RouterModule } from '@angular/router';
 import { StoreComponent } from './components/store/store.component';
 import { PersonComponent } from './components/person/person.component';
 import { PlanComponent } from './components/plan/plan.component';
+import { SocketIoConfig, SocketIoModule } from 'ngx-socket-io';
+import { ReactiveFormsModule } from '@angular/forms';
+
+
 
 @NgModule({
   declarations: [
@@ -18,7 +22,8 @@ import { PlanComponent } from './components/plan/plan.component';
   imports: [
     CommonModule,
     RouterModule,
-    TemplateModule
+    TemplateModule,
+    ReactiveFormsModule
   ],
   exports : [
     AdminComponent

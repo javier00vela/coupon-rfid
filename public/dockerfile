@@ -8,25 +8,25 @@ WORKDIR /coupon-rfid-angular
 COPY package.json package-lock.json ./
 
 # Install the dependencies and make the folder
-RUN npm install
+#RUN npm install
 
-RUN npx ngcc --properties es2015 --create-ivy-entry-points
+#RUN npx ngcc --properties es2015 --create-ivy-entry-points
 
-COPY . .
+#COPY . .
 
 # Build the project and copy the files
-RUN npm run ng build -- --prod
+#RUN npm run ng build -- --prod
 
 # Stage 2
 FROM nginx:alpine
 
-COPY ./.server/nginx.conf /etc/nginx/nginx.conf
+#COPY ./.server/nginx.conf /etc/nginx/nginx.conf
 
 ## Remove default nginx index page
-RUN rm -rf /var/www/coupon-rfid-angular/*
+#RUN rm -rf /var/www/coupon-rfid-angular/*
 
 # Copy from the stage 1
-COPY --from=builder /coupon-rfid-angular/dist/coupon-rfid-angular /var/www/
+#COPY --from=builder /coupon-rfid-angular/dist/coupon-rfid-angular /var/www/
 
 EXPOSE 80
 

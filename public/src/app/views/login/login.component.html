@@ -1,35 +1,26 @@
 <div class="container" id="container">
-	<div class="form-container sign-up-container">
-		<form action="#">
-			<h1>Crear Cuenta</h1>
-			<span>Por favor ingrese los siguientes datos:</span>
-			<input type="text" placeholder="Name" />
-			<input type="email" placeholder="Email" />
-			<input type="password" placeholder="Password" />
-			<button>Ingresar</button>
-		</form>
-	</div>
 	<div class="form-container sign-in-container">
-		<form action="#">
+		<form  [formGroup]="formLogin" (ngSubmit)="onSubmitLogin(formLogin)">
 			<h1>Ingresar</h1>
 			<span>Ingrese los siguientes datos:</span>
-			<input type="email" placeholder="Email" />
-			<input type="password" placeholder="Password" />
-		
+			<input type="email" class="error"  formControlName="email" placeholder="Email" />
+			<div class="text-danger" *ngIf="f.email.errors?.required && f.email.touched">
+				El campo Correo es requerido ! 
+			</div>
+			<div class="text-danger" *ngIf="f.email.errors?.email && f.email.touched">
+				El campo debe ser de tipo correo ! 
+			</div>
+			<input type="password"    formControlName="password" placeholder="Password" />
+			<div class="text-danger" *ngIf="f.password.errors?.required && f.password.touched">
+				El campo Contraseña es requerido ! 
+			</div>
 			<button>Ingresar</button>
 		</form>
 	</div>
 	<div class="overlay-container">
 		<div class="overlay">
-			<div class="overlay-panel overlay-left">
-				<h1>¿Ya haces parte del aplicativo de cupones?</h1>
-				<p>Si ya cuenta con una cuenta para ingresa dale click en el boton 'Logearme'</p>
-				<button class="ghost" id="signIn">Logearme</button>
-			</div>
 			<div class="overlay-panel overlay-right">
                 <h1>Bienvenido al aplicativo de cupones!</h1>
-				<p>Si no cuentas con una cuenta para ingresar dale click en el boton 'Registrarme' </p>
-				<button class="ghost" id="signUp">Registrarme</button>
 			</div>
 		</div>
 	</div>

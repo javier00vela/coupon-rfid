@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AbstractControl, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-login',
@@ -7,22 +8,26 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LoginComponent implements OnInit {
 
-  constructor() { 
-   
+  constructor(private fb: FormBuilder) { }
+
+  public formLogin : FormGroup =   this.fb.group({
+    "email": new FormControl("", [Validators.required , Validators.email]),
+    "password": new FormControl("", Validators.required),
+  });
+  
+
+  onSubmitLogin(form:FormGroup){
+   if(form.status == "VALID"){
+    console.log(form);
+   }
+  }
+  get f(): { [key: string]: AbstractControl } {
+    return this.formLogin.controls;
   }
 
   ngOnInit(): void {
-    const signUpButton : any = document.getElementById('signUp');
-    const signInButton : any = document.getElementById('signIn');
-    const container : any = document.getElementById('container');
-
-    signUpButton.addEventListener('click', () => {
-      container.classList.add("right-panel-active");
-    });
-
-    signInButton.addEventListener('click', () => {
-      container.classList.remove("right-panel-active");
-    });
+    console.log(this.formLogin);
+    
   }
 
 }

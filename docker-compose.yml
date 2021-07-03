@@ -1,5 +1,13 @@
 version: '3.5'
 services:
+  socket-python:
+    build:
+      context: ./hardware/socket
+    ports:
+     - "8089:8089"
+    volumes:
+      - ./hardware/socket:/hardware/socket
+    command: python app.py
   api-python:
     build:
       context: ./api
