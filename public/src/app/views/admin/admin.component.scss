@@ -1,0 +1,21 @@
+.app-container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    background-color: var(--app-container);
+    transition: 0.2s;
+    max-width: 1800px;
+}
+
+.canvas-div{
+    height: 100%;
+    position: initial;
+}
+
+  
+@media screen and (min-width: 1080px) {
+    .sidebarDiv{
+        width: 7% !important;
+    }
+}
