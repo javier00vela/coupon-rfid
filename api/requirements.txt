@@ -1,1 +1,6 @@
 flask==2.0.1
+flask-mysql
+watchdog
+pyyaml
+colorama
+py-mon
