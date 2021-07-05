@@ -15,7 +15,11 @@ services:
      - "5000:5000"
     volumes:
       - ./api:/api
-    command: flask run --host=0.0.0.0
+    depends_on:
+      - db
+    links: 
+      - db 
+    command: pymon app.py
   frontend:
     build: 
       context: ./public
@@ -23,16 +27,16 @@ services:
       NODE_ENV: production
     ports:
       - 8080:8080
-  mysqldb:
-    image: mysql
+  db:
+    build:
+        context: ./docs/sql
+        args:
+          - MYSQL_DATABASE=${MYSQL_DATABASE}
+          - MYSQL_USER=${MYSQL_USER}
+          - MYSQL_PASSWORD=${MYSQL_PASSWORD}
+          - MYSQL_ROOT_PASSWORD=${MYSQL_ROOT_PASSWORD}
     ports:
-    - 3306:3306
-    environment:
-    - MYSQL_ROOT_PASSWORD=p@ssw0rd1
-    - MYSQL_DATABASE=coupon_db
-    volumes:
-    - mysql:/var/lib/mysql
-    - mysql_config:/etc/mysql
+        - "3306:3306"
 volumes:
   mysql:
   mysql_config:
