@@ -1,1 +1,29 @@
-<p>plan works!</p>
+<div class="form-group">
+    <button class="btn btn-primary" [routerLink]="['/admin/plan/add']"><i class="fa fa-plus"></i> Agregar Plan</button>
+</div>
+
+
+<div class="table-responsive">
+	<table>
+		<thead>
+			<tr>
+                <th>Nombre</th>
+                <th>Nro Cupones</th>
+				<th>Descripcion</th>
+                <th>Acciones</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td>Premium</td>
+				<td>20</td>
+                <td>Cupones premiums</td>
+                <td>
+                    <button class="bg-danger btn-xs"><i class="fa fa-close"></i></button>
+                    <button class="bg-warning btn-xs"><i class="fa fa-edit" [routerLink]="['/admin/plan/1']"></i></button>
+                </td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+

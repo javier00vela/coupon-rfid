@@ -1,1 +1,36 @@
-<p>person works!</p>
+<div class="form-group">
+    <button class="btn btn-primary" [routerLink]="['/admin/person/add']"><i class="fa fa-plus"></i> Agregar Persona</button>
+</div>
+
+
+<div class="table-responsive">
+	<table>
+		<thead>
+			<tr>
+				<th>Nombres</th>
+                <th>Tipo Documento</th>
+				<th>Documento</th>
+				<th>Correo</th>
+                <th>Télefono</th>
+                <th>Rol</th>
+				<th>Acciones</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td>1ος Παγκόσμιος</td>
+				<td>Λοΐζος, Μ.</td>
+				<td>Νεγρεπόντης, Μ.</td>
+				<td>28 Οκτ., 17 Νοε.</td>
+                <td>Νεγρεπόντης, Μ.</td>
+				<td>28 Οκτ., 17 Νοε.</td>
+                <td>
+                    <button class="bg-danger btn-xs"><i class="fa fa-close"></i></button>
+                    <button class="bg-warning btn-xs"  [routerLink]="['/admin/person/1']"><i class="fa fa-edit"></i></button>
+                    <button class="bg-primary btn-xs"  [routerLink]="['/admin/person/coupon/1']"><i class="fa fa-cube"></i></button> 
+                </td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+

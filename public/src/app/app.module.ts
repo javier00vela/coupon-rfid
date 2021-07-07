@@ -10,7 +10,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
   declarations: [
     AppComponent,
     LoginComponent,
-    ClientComponent
+    ClientComponent,
   ],
   imports: [
     BrowserModule,

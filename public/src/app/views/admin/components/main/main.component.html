@@ -1,5 +1,6 @@
-<p>main works!</p>
 
-<i class="fa fa-user"></i>
-
-{{ tarjetaData }}
+<div class="row">
+    <div *ngFor="let item of boxes" class="col-sm-6">
+        <app-box [box]="item"></app-box>
+    </div>
+</div>
