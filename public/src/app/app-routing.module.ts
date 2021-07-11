@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { RoleGuardService } from './helpers/role.guards';
 import { AdminComponent } from './views/admin/admin.component';
 import { MainComponent } from './views/admin/components/main/main.component';
 import { ManageCouponPersonComponent } from './views/admin/components/manage-coupon-person/manage-coupon-person.component';
@@ -16,8 +17,8 @@ import { LoginComponent } from './views/login/login.component';
 
 const routes: Routes = [
   { path : '' , component : ClientComponent},
-  { path : 'login' , component : LoginComponent},
-  { path: 'admin', component : AdminComponent , data : { title : 'Menu Principal' } , children :[
+  { path : 'login' , component : LoginComponent },
+  { path: 'admin', component : AdminComponent , data : { title : 'Menu Principal' } , canActivate:[RoleGuardService] , children :[
     { path : 'main' , component : MainComponent , data : { title : 'Menu Principal' }},
     { path : 'person' , component : PersonComponent , data : { title : 'Administrar Personas' } },
     { path : 'person/:idPerson' , component : ManagePersonComponent , data : { title : 'Gestionar Personas' } }, 

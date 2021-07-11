@@ -11,6 +11,7 @@ export class HeaderComponent implements OnInit {
   constructor(private router : Router) { }
 
   public closePage(){
+    localStorage.removeItem("token")
     this.router.navigate(["/login"]);
   }
 

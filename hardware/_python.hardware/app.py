@@ -8,7 +8,6 @@ sio.connect(PORT_CONECTION)
 serial = ArduinoSerial()
 if serial.connectPort():
     while True:
-        time.sleep(1)
         print("Escuchando petición")
         datos = serial.listenBytes()
         print(datos)

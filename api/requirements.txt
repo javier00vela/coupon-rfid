@@ -4,3 +4,6 @@ watchdog
 pyyaml
 colorama
 py-mon
+flask-cors
+pyjwt
+python-passlib
