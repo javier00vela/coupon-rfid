@@ -14,19 +14,19 @@ export class GeneralService {
     constructor(public http: HttpClient) { }
 
     protected get(module:string) {
-        this.http.get(`${this.app}/${module}`);
+        return this.http.get(`${this.app}/${module}`);
     }
 
     protected post(module:string, data : JSON|JSON[]|Object) {
         return this.http.post(`${this.app}/${module}`, data);
     }
 
-    protected update(module:string, id:number ,  data : JSON|JSON[]|Object) {
-        this.http.put(`${this.app}/${module}/${id}`, data);
+    protected update(module:string, id:number|undefined ,  data : JSON|JSON[]|Object) {
+        return this.http.put(`${this.app}/${module}/${id}`, data);
     }
 
-    protected delete(module:string, id:number ,  data : JSON|JSON[]|Object) {
-        this.http.delete(`${this.app}/${module}/${id}`);
+    protected delete(module:string, id:number|undefined) {
+        return this.http.delete(`${this.app}/${module}/${id}`);
     }
 
 }

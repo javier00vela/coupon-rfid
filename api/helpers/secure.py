@@ -14,7 +14,7 @@ def generate_token(json):
 def validate_token(fun):
     def wrapper():
         try:
-            variable = request.headers.get('Authorization')
+            variable = ""
             payload = decode( variable , config.app.config["TOKEN"] ,algorithms=["HS256"])
             if not payload:
                 return {'message':'Unauthorized','status': 401}

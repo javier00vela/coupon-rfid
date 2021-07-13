@@ -1,5 +1,5 @@
 <div class="form-group">
-    <button class="btn btn-primary" [routerLink]="['/admin/store/1']"><i class="fa fa-plus"></i> Agregar Tienda</button>
+    <button class="btn btn-primary" [routerLink]="['/admin/store/add']"><i class="fa fa-plus"></i> Agregar Tienda</button>
 </div>
 
 <div class="table-responsive">
@@ -7,18 +7,20 @@
 		<thead>
 			<tr>
                 <th>Nombre</th>
-                <th>Nit</th>
+                <th>Dirección</th>
+				<th>Teléfonos</th>
                 <th>Acciones</th>
 			</tr>
 		</thead>
 		<tbody>
-			<tr>
-				<td>MC donalds</td>
-				<td>123456789</td>
+			<tr *ngFor="let store of stores | async ">
+				<td>{{ store.name }}</td>
+				<td>{{ store.address }}</td>
+				<td>{{ store.phone }}</td>
                 <td>
-                    <button class="bg-danger btn-xs"><i class="fa fa-close"></i></button>
-                    <button class="bg-warning btn-xs"><i class="fa fa-edit"></i></button>
-					<button class="btn-xs" [routerLink]="['/admin/product/1']"><i class="fa fa-cube" ></i></button>
+                    <button class="bg-danger btn-xs"  (click)="delete(store)"><i class="fa fa-close"></i></button>
+                    <button class="bg-warning btn-xs" [routerLink]="['/admin/store/'+store.id]"><i class="fa fa-edit"></i></button>
+					<button class="btn-xs" [routerLink]="['/admin/product/'+store.id]"><i class="fa fa-cube" ></i></button>
                 </td>
 			</tr>
 		</tbody>

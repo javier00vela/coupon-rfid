@@ -1,1 +1,50 @@
-<p>manage-person works!</p>
+<form  [formGroup]="form" (ngSubmit)="onSubmit(form)">
+    
+    <div class="form-control">
+        <label >Nombres</label>
+        <input type="text" class="error"  formControlName="name" placeholder="Nombres" />
+        <div class="text-danger" *ngIf="f.name.errors?.required && f.name.touched">
+            El campo Nombre es requerido ! 
+        </div>
+    </div>
+
+    <div class="form-control">
+        <label >Apellidos</label>
+        <input type="text" class="error"  formControlName="lastname" placeholder="Apellidos" />
+        <div class="text-danger" *ngIf="f.lastname.errors?.required && f.lastname.touched">
+            El campo Apellidos es requerido ! 
+        </div>
+    </div>
+
+    <div class="form-control">
+        <label >Tipo Documento</label>
+        <select type="text" class="error"  formControlName="type_document"  >
+            <option > -- Seleccione una opcion</option>
+            <option value="cc">CC</option>
+            <option value="ti">TI</option>
+            <option value="te">TE</option>
+        </select>
+        <div class="text-danger" *ngIf="f.type_document.errors?.required && f.type_document.touched">
+            El campo Tipo Documento es requerido ! 
+        </div>
+    </div>
+
+    <div class="form-control">
+        <label >Teléfono</label>
+        <input type="text" class="error"  formControlName="phone" placeholder="Telefono" />
+        <div class="text-danger" *ngIf="f.phone.errors?.required && f.phone.touched">
+            El campo Teléfono es requerido ! 
+        </div>
+    </div>
+
+    <div class="form-control">
+        <label >Tarjeta RFID</label>
+        <input type="text" class="error"  readonly formControlName="rfid" placeholder="Rfid" />
+        <div class="text-danger" *ngIf="f.rfid.errors?.required && f.rfid.touched">
+            El campo Rfid es requerido ! 
+        </div>
+    </div>
+
+
+    <button>GESTIONAR</button>
+</form>

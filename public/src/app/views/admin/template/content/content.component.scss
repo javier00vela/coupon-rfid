@@ -3,8 +3,8 @@
     background-color: var(--projects-section);
     border-radius: 32px;
     padding: 50px;
-    overflow: hidden;
-    height: 100vh;
+    overflow-y: auto;
+    height: 90vh;
     display: flex;
     flex-direction: column;
 

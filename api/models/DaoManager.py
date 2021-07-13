@@ -43,7 +43,9 @@ class DaoManager(Db):
 
 
     def execute(self,sql):
-        cur = self.get_connection().cursor()
-        cur.execute(sql)
+        cur = self.get_connection()
+        cursor = cur.cursor()
+        cursor.execute(sql)
         cur.commit()
+        cur.close()
     

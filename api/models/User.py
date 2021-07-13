@@ -11,7 +11,7 @@ class User(DaoManager):
 
     def auth(self,email ,password):
 
-        sql = f' SELECT person.* FROM {self.TABLE} INNER JOIN person on person.id = {self.TABLE}.person_id  WHERE email = "{email}" and password = "{password}" '
+        sql = f' SELECT person.* FROM {self.TABLE} INNER JOIN person on person.id = {self.TABLE}.person_id  WHERE user.email = "{email}" and user.password = "{password}" '
         print(sql)
         return self.findCustoming(sql)
 
