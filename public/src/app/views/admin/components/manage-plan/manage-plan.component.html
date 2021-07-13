@@ -1,1 +1,20 @@
-<p>manage-plan works!</p>
+<form  [formGroup]="form" (ngSubmit)="onSubmit(form)">
+    
+    <div class="form-control">
+        <label >Nombre</label>
+        <input type="text" class="error"  formControlName="name" placeholder="Nombres" />
+        <div class="text-danger" *ngIf="f.name.errors?.required && f.name.touched">
+            El campo Nombre es requerido ! 
+        </div>
+    </div>
+
+    <div class="form-control">
+        <label >Descripción</label>
+        <textarea type="text" class="error"  formControlName="description" placeholder="Dirección" ></textarea>
+        <div class="text-danger" *ngIf="f.description.errors?.required && f.description.touched">
+            El campo Descripción es requerido ! 
+        </div>
+    </div>
+
+    <button>GESTIONAR</button>
+</form>
