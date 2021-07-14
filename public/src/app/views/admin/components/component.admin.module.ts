@@ -13,6 +13,9 @@ import { ManagePlanComponent } from './manage-plan/manage-plan.component';
 import { RouterModule } from '@angular/router';
 import { ManageStoreComponent } from './manage-store/manage-store.component';
 import { ManageCouponPersonComponent } from './manage-coupon-person/manage-coupon-person.component';
+
+ 
+
 @NgModule({
   declarations: [
     StoreComponent,
@@ -30,6 +33,7 @@ import { ManageCouponPersonComponent } from './manage-coupon-person/manage-coupo
     FormsModule,
     CommonModule,
     ComponentsModule,
+
     RouterModule,
     ReactiveFormsModule
   ],

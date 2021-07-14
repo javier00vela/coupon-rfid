@@ -1,4 +1,4 @@
-from controllers import userController,storeController,planController
+from controllers import userController,storeController,planController,productController
 from flask import Flask
 
 
@@ -18,4 +18,12 @@ def loader_routes(app):
     app.add_url_rule('/API/plans/<id>', view_func=planController.removePlan , methods=["DELETE"])
     app.add_url_rule('/API/plans/<id>', view_func=planController.putPlan , methods=["PUT"])
     app.add_url_rule('/API/plans/<id>', view_func=planController.byIdPlan , methods=["GET"])
+
+     #product routes
+    app.add_url_rule('/API/products', view_func=productController.saveProduct , methods=["POST"])
+    app.add_url_rule('/API/products/store/<idStore>', view_func=productController.allProductStore , methods=["GET"])
+    app.add_url_rule('/API/products', view_func=productController.allProduct , methods=["GET"])
+    app.add_url_rule('/API/products/<id>', view_func=productController.removeProduct , methods=["DELETE"])
+    app.add_url_rule('/API/products/<id>', view_func=productController.putProduct , methods=["PUT"])
+    app.add_url_rule('/API/products/<id>', view_func=productController.byIdProduct , methods=["GET"])
 

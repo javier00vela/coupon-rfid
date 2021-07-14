@@ -26,9 +26,9 @@ export class PlanComponent implements OnInit {
       });
     }
   }
+  
 
   ngOnInit(): void {
     this.getPlans();
   }
-
 }

@@ -1,5 +1,7 @@
+<h4>Empresa : {{ title | uppercase }}</h4>
+
 <div class="form-group">
-    <button class="btn btn-primary" [routerLink]="['/admin/product/mcdonald/1']"><i class="fa fa-plus"></i> Agregar Producto </button>
+    <button class="btn btn-primary" [routerLink]="['/admin/product/'+idProduct+'/add']"><i class="fa fa-plus"></i> Agregar Producto </button>
     <button class="btn bg-secondary" [routerLink]="['/admin/store']"><i class="fa fa-arrow-left"></i> Regresar </button>
 </div>
 
@@ -9,19 +11,17 @@
 		<thead>
 			<tr>
 				<th>Nombre</th>
-                <th>Tienda</th>
-				<th>cantidad</th>
+                <th>Descripción</th>
 				<th>Acciones</th>
 			</tr>
 		</thead>
 		<tbody>
-			<tr>
-				<td>1ος Παγκόσμιος</td>
-				<td>Λοΐζος, Μ.</td>
-				<td>Νεγρεπόντης, Μ.</td>
+			<tr *ngFor="let product of products | async">
+				<td>{{ product.name }}</td>
+				<td>{{ product.description }}</td>
                 <td>
-                    <button class="bg-danger btn-xs"><i class="fa fa-close"></i></button>
-                    <button class="bg-warning btn-xs" [routerLink]="['/admin/product/mcdonald/add']"><i class="fa fa-edit"></i></button>
+                    <button class="bg-danger btn-xs" (click)="delete(product)"><i class="fa fa-close"></i></button>
+                    <button class="bg-warning btn-xs" [routerLink]="['/admin/product/'+idProduct+'/'+product.id]"><i class="fa fa-edit"></i></button>
                 </td>
 			</tr>
 		</tbody>
