@@ -53,7 +53,7 @@ export class ManagePlanComponent implements OnInit {
         this.planServices.save(plan).subscribe((resp:any)=>{
           if(resp.message == 'GUARDADO'){
             alert("Guardado!")
-            return this.router.navigate(["/admin/store"])
+            return this.router.navigate(["/admin/plan"])
           }
           return 
         })
@@ -64,9 +64,29 @@ export class ManagePlanComponent implements OnInit {
     return this.form.controls;
   }
 
-  ngOnInit(): void {
+  dropdownList :any = [
+    { item_id: 1, item_text: 'Mumbai' },
+    { item_id: 2, item_text: 'Bangaluru' },
+    { item_id: 3, item_text: 'Pune' },
+    { item_id: 4, item_text: 'Navsari' },
+    { item_id: 5, item_text: 'New Delhi' }
+  ];
+
+  selectedItems:any = [
+    { item_id: 3, item_text: 'Pune' },
+    { item_id: 4, item_text: 'Navsari' }
+  ];
+  ngOnInit() {
     this.loadById();
-    console.log(this.form);
   }
+  onItemSelect(item: any) {
+    console.log(item);
+  }
+  onSelectAll(items: any) {
+    console.log(items);
+  }
+
+
+
 
 }
