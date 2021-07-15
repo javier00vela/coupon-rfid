@@ -23,8 +23,13 @@ class Product(DaoManager):
         sql = f' SELECT name , description , id FROM {self.TABLE} where state = 1 and store_id = "{idStore}"'
         return self.findCustoming(sql)
 
+    def getAllPlan(self , idPlan):
+        sql = f' SELECT {self.TABLE}.name , {self.TABLE}.description , {self.TABLE}.id , coupon_product.amount as amount FROM {self.TABLE} INNER JOIN coupon_product ON coupon_product.product_id = {self.TABLE}.id where state = 1 and cupon_id = "{idPlan}"'
+        return self.findCustoming(sql)
+        
+
     def getAll(self ):
-        sql = f' SELECT name , description , id FROM {self.TABLE} where state = 1 '
+        sql = f' SELECT name , description , id  , 0 as amount  FROM {self.TABLE} where state = 1 '
         return self.findCustoming(sql)
 
     def getById(self, product):

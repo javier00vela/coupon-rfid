@@ -22,6 +22,8 @@ def loader_routes(app):
      #product routes
     app.add_url_rule('/API/products', view_func=productController.saveProduct , methods=["POST"])
     app.add_url_rule('/API/products/store/<idStore>', view_func=productController.allProductStore , methods=["GET"])
+    app.add_url_rule('/API/products/plan/<idPlan>', view_func=productController.allProductPlan , methods=["GET"])
+    
     app.add_url_rule('/API/products', view_func=productController.allProduct , methods=["GET"])
     app.add_url_rule('/API/products/<id>', view_func=productController.removeProduct , methods=["DELETE"])
     app.add_url_rule('/API/products/<id>', view_func=productController.putProduct , methods=["PUT"])
