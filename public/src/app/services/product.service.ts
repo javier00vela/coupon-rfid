@@ -23,6 +23,14 @@ export class ProductService extends GeneralService{
         return this.get(`products/${id}`);
     }
 
+    public productsAll() {
+        return this.get(`products`);
+    }
+
+    public productsPlan(plan_id : any) {
+        return this.get(`products/plan/${plan_id}`);
+    }
+
     public save(product : Product) {
         return this.post(`products`, product);
     }

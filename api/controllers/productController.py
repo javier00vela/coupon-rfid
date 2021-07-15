@@ -24,6 +24,14 @@ def allProductStore(idStore):
     products = product.getAllStore(idStore)
     return response(products)
 
+
+def allProductPlan(idPlan):
+    product = Product()
+    products = product.getAllPlan(idPlan)
+    return response(products)
+
+    
+
 @app.route('/API/products' , methods=['GET'])
 @cross_origin()
 def allProduct():

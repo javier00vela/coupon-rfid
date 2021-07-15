@@ -47,5 +47,7 @@ class DaoManager(Db):
         cursor = cur.cursor()
         cursor.execute(sql)
         cur.commit()
+        id = cursor.lastrowid
         cur.close()
+        return id
     
