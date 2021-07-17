@@ -25,9 +25,18 @@ export class PersonService extends GeneralService{
         return this.post(`persons`, person);
     }
 
+    public findDataTarget(rfid : any) {
+        return this.post(`persons/rfid`, {rfid : rfid});
+    }
+
     public put(person : any) {
         return this.update (`persons`, person.id , person);
     }
+
+    public saveCupons(coupons : any) {
+        return this.update (`persons/coupons`,coupons.id_coupon_product, {coupons : coupons});
+    }
+    
 
     public remove(person : any) {
         return this.delete (`persons`, person.id);
