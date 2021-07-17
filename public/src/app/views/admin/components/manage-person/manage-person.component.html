@@ -19,13 +19,20 @@
     <div class="form-control">
         <label >Tipo Documento</label>
         <select type="text" class="error"  formControlName="type_document"  >
-            <option > -- Seleccione una opcion</option>
             <option value="cc">CC</option>
             <option value="ti">TI</option>
             <option value="te">TE</option>
         </select>
         <div class="text-danger" *ngIf="f.type_document.errors?.required && f.type_document.touched">
             El campo Tipo Documento es requerido ! 
+        </div>
+    </div>
+
+    <div class="form-control">
+        <label >Documento</label>
+        <input type="number" class="error"  formControlName="document" placeholder="Documento" />
+        <div class="text-danger" *ngIf="f.document.errors?.required && f.document.touched">
+            El campo Documento es requerido ! 
         </div>
     </div>
 
@@ -42,6 +49,16 @@
         <input type="text" class="error"  readonly formControlName="rfid" placeholder="Rfid" />
         <div class="text-danger" *ngIf="f.rfid.errors?.required && f.rfid.touched">
             El campo Rfid es requerido ! 
+        </div>
+    </div>
+
+    <div class="form-control">
+        <label >Tipo Plan Asignado</label>
+        <select type="text" class="error"  formControlName="type_asign"  >
+            <option *ngFor="let plan of plansList | async" [value]="plan.id">{{ plan.name }}</option>
+        </select>
+        <div class="text-danger" *ngIf="f.type_document.errors?.required && f.type_document.touched">
+            El campo Tipo Plan es requerido ! 
         </div>
     </div>
 

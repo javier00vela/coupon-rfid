@@ -1,4 +1,4 @@
-from controllers import userController,storeController,planController,productController
+from controllers import userController,storeController,planController,productController, personController
 from flask import Flask
 
 
@@ -23,9 +23,14 @@ def loader_routes(app):
     app.add_url_rule('/API/products', view_func=productController.saveProduct , methods=["POST"])
     app.add_url_rule('/API/products/store/<idStore>', view_func=productController.allProductStore , methods=["GET"])
     app.add_url_rule('/API/products/plan/<idPlan>', view_func=productController.allProductPlan , methods=["GET"])
-    
     app.add_url_rule('/API/products', view_func=productController.allProduct , methods=["GET"])
     app.add_url_rule('/API/products/<id>', view_func=productController.removeProduct , methods=["DELETE"])
     app.add_url_rule('/API/products/<id>', view_func=productController.putProduct , methods=["PUT"])
     app.add_url_rule('/API/products/<id>', view_func=productController.byIdProduct , methods=["GET"])
 
+    #persons routes
+    app.add_url_rule('/API/persons', view_func=personController.savePerson , methods=["POST"])
+    app.add_url_rule('/API/persons', view_func=personController.allPerson , methods=["GET"])
+    app.add_url_rule('/API/persons/<id>', view_func=personController.removePerson , methods=["DELETE"])
+    app.add_url_rule('/API/persons/<id>', view_func=personController.putPerson , methods=["PUT"])
+    app.add_url_rule('/API/persons/<id>', view_func=personController.byIdPerson , methods=["GET"])

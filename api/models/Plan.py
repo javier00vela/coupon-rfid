@@ -29,6 +29,10 @@ class Plan(DaoManager):
         sql = f' SELECT * FROM {self.TABLE}  where state = 1'
         return self.findCustoming(sql)
 
+    def getPlanCoupons(self, plan_id):
+        sql = f' SELECT coupon_product.id as id , amount FROM {self.TABLE} INNER JOIN coupon_product ON coupon_product.cupon_id = {self.TABLE}.id  where state = 1 and {self.TABLE}.id= {plan_id}'
+        return self.findCustoming(sql)
+
     def getById(self, store):
         return self.findById(store["id"])
 

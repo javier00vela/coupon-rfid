@@ -4,7 +4,7 @@ class ArduinoSerial:
     device = ''
     itc = 0
 
-    def __init__(self, port='COM5', itc=9600):
+    def __init__(self, port='COM6', itc=9600):
         self.device = port
         self.itc = itc
 

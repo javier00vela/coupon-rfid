@@ -16,35 +16,8 @@ export class MainComponent {
     ] 
 
 
-
-   public arrayBufferToString( buffer : any , encoding : any, callback : any ) {
-    var blob = new Blob([buffer],{type:'text/plain'});
-    var reader = new FileReader();
-    reader.onload = function(evt:any){callback(evt.target.result);};
-    reader.readAsText(blob, encoding);
-}
-
-
   constructor() {
-    var  socket = io('http://localhost:8089');
-    socket = socket.connect();
-
-    console.log(socket);
-    
-    
-    socket.on("_RID_READER_",(data:any)=>{
-      console.log(data);
-      this.arrayBufferToString(data.data , "UTF-8" , (datas:any)=>{
-         this.tarjetaData = datas;
-          
-      })
-    })
-    
-
-
   }
-
-  
 
 
 }
