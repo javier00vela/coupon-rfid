@@ -54,12 +54,36 @@ def putPerson(id):
     person = Person()
     data = request.get_json(force=True)
     person.update(data)
-    print(data["id"])
     couponSelected = Plan.getPlanCoupons(person,data["type_asign"])
     person.delete_coupons(data["id"])
     for coupon in couponSelected:
         person.set_coupon(coupon , data["id"])
     return response({"message":"ACTUALIZADO"})
+
+
+@app.route('/API/persons/rfid' , methods=['POST'])
+@cross_origin()
+def rfid():
+    data = { 'person' : {} , 'coupons' : [] }
+    json = request.get_json(force=True)
+    person = Person()
+    data["person"] = person.findRfid(json)[0]
+    if  data["person"]:
+        data["coupons"] = person.findCouponsPerson( data["person"])
+    return response(data)
+
+@app.route('/API/persons/coupons/<id>' , methods=['PUT'])
+@cross_origin()
+def coupon_used(id):
+    person = Person()
+    json = request.get_json(force=True)
+    for coupon in json["coupons"]:
+        person.consumed(coupon)
+    return response(True)
+
+
+
+
 
 
 

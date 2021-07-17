@@ -1,84 +1,69 @@
 
 	<div class="cart-wrap">
-		<div class="container">
+		<div class="container-fluid">
 	        <div class="row" style=" height: 800px;">
-			    <div class=" container-products col-lg-8">
-			        <div class="main-heading"> MC DONALD'S TIENDA DIVERPLAZA - PRODUCTOS</div>
+			    <div class=" container-products col-lg-9">
+			        <div class="main-heading"> Gastar Cupones </div>
                     <hr>
 			        <div class="table-cart" style=" overflow-y:auto;height: 500px;">
 	                    <table>
-	                        <thead>
+	                        <thead  style="text-align: center;" >
 	                            <tr>
+									<th></th>
 	                                <th>Producto</th>
 	                                <th>Cantidad</th>
 	                                <th>Disponibles</th>
-	                                <th></th>
+	                                <th>Tienda</th>
 	                            </tr>
 	                        </thead>
-	                        <tbody  >
-	                            <tr>
+	                        <tbody style="text-align: center;" >
+	                            <tr *ngFor="let coupon of products">
 	                                <td>
-	                                	<div class="display-flex align-center">
-		                                    <div class="img-product">
-		                                        <img src="https://www.91-img.com/pictures/laptops/asus/asus-x552cl-sx019d-core-i3-3rd-gen-4-gb-500-gb-dos-1-gb-61721-large-1.jpg" alt="" class="mCS_img_loaded">
-		                                    </div>
-		                                    <div class="name-product">
-		                                        Apple iPad Mini
-		                                        <br>G2356
-		                                    </div>           
-	                                    </div>
+		                                <img [src]="coupon.product_image" width="100" height="100" >
 	                                </td>
+									<td> {{ coupon.product_name}}</td>
 	                                <td class="product-count">
 	                                    <form action="#" class="count-inlineflex">
-										    <div class="qtyminus">-</div>
-										    <input type="text" name="quantity" value="1" class="qty">
-										    <div class="qtyplus">+</div>
+										    <div class="qtyminus" (click)="amount(coupon,'-')">-</div>
+										    <input type="text" [(ngModel)]="coupon.used" name="quantity" class="qty">
+										    <div class="qtyplus"  (click)="amount(coupon,'+')">+</div>
 										</form>
 	                                </td>
 	                                <td>
-	                                    <div class="total">
-	                                       10
-	                                    </div>
+											{{ coupon.amount_user}}
 	                                </td>
 	                                <td>
-	                                    <a href="#" title="">
-	                                        <img src="images/icons/delete.png" alt="" class="mCS_img_loaded">
-	                                    </a>
+											{{ coupon.store_name}}
 	                                </td>
 	                            </tr>
-                               
 	                        </tbody>
 	                    </table>
 			        </div>
 			        <!-- /.table-cart -->
 			    </div>
 			    <!-- /.col-lg-8 -->
-			    <div class="col-lg-4">
-			        <div class="cart-totals">
+			    <div class="col-lg-3">
+			        <div class="cart-totals" *ngIf="person.name">
 			            <h3>Detalle de la Información</h3>
-			            <form action="#" method="get" accept-charset="utf-8">
+			            <form  action="#" method="get" accept-charset="utf-8">
 			                <table>
 			                    <tbody>
 			                        <tr>
-			                            <td>Empresa</td>
-			                            <td class="free-shipping">Mc Donals</td>
-			                        </tr>
-			                        <tr>
 			                            <td>Cliente</td>
-			                            <td class="free-shipping">Javier Vela</td>
+			                            <td class="free-shipping">{{ person.name }} {{ person.lastname }}</td>
+			                        </tr>
+									<tr>
+			                            <td>Tipo documento</td>
+			                            <td class="free-shipping">{{ person.type_document }}</td>
 			                        </tr>
                                     <tr>
-			                            <td>Correo</td>
-			                            <td class="free-shipping">javier00vela@gmail.com</td>
-			                        </tr>
-			                        <tr class="total-row">
-			                            <td>Total Cupones</td>
-			                            <td class="price-total">$1,591.00</td>
+			                            <td>Cedula</td>
+			                            <td class="free-shipping">{{ person.document }}</td>
 			                        </tr>
 			                    </tbody>
 			                </table>
 			                <div class="btn-cart-totals">
-			                    <a href="#" class="checkout round-black-btn" >Procesar Cupones </a>
+			                    <a (click)="process()" class="checkout round-black-btn" >Procesar Cupones </a>
 			                </div>
 			            </form>
 			        </div>

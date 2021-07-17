@@ -16,7 +16,7 @@ import { ClientComponent } from './views/client/client.component';
 import { LoginComponent } from './views/login/login.component';
 
 const routes: Routes = [
-  { path : '' , component : ClientComponent},
+  { path : 'factory' , component : ClientComponent},
   { path : 'login' , component : LoginComponent },
   { path: 'admin', component : AdminComponent , data : { title : 'Menu Principal' } , canActivate:[RoleGuardService] , children :[
     { path : 'main' , component : MainComponent , data : { title : 'Menu Principal' }},
@@ -30,6 +30,7 @@ const routes: Routes = [
     { path : 'plan' , component : PlanComponent ,  data : { title : 'Administrar Planes' }},
     { path : 'plan/:idPlan' , component : ManagePlanComponent , data : { title : 'Administrar Planes' } },
   ] },
+  { path: '**' , component : LoginComponent },
 ];
 
 @NgModule({

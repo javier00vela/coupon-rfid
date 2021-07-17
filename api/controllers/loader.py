@@ -34,3 +34,8 @@ def loader_routes(app):
     app.add_url_rule('/API/persons/<id>', view_func=personController.removePerson , methods=["DELETE"])
     app.add_url_rule('/API/persons/<id>', view_func=personController.putPerson , methods=["PUT"])
     app.add_url_rule('/API/persons/<id>', view_func=personController.byIdPerson , methods=["GET"])
+    app.add_url_rule('/API/persons/rfid', view_func=personController.rfid , methods=["POST"])
+    app.add_url_rule('/API/persons/coupons/<id>', view_func=personController.coupon_used , methods=["PUT"])
+
+    
+    
