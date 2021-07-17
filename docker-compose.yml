@@ -28,6 +28,7 @@ services:
     ports:
       - 8080:8080
   db:
+    restart: always
     build:
         context: ./docs/sql
         args:

@@ -64,7 +64,6 @@ export class ManagePlanComponent implements OnInit {
 
   onSubmit(form:FormGroup){
     this.form.get("products")?.setValue(this.optionItems)
-    console.log(form.value);
    if(form.status == "VALID"){
       let plan : Plans = form.value;
      

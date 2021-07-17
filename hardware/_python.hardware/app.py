@@ -1,4 +1,3 @@
-import time
 from arduino.serial import ArduinoSerial
 import requests
 import socketio
