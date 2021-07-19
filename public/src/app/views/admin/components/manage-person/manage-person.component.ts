@@ -3,6 +3,7 @@ import { AbstractControl, FormBuilder, FormControl, FormGroup, Validators } from
 import { ActivatedRoute, Router } from '@angular/router';
 import { PersonService } from 'src/app/services/person.service';
 import { PlanService } from 'src/app/services/plans';
+import { environment } from 'src/environments/environment';
 declare const io : any ;
 
 @Component({
@@ -89,7 +90,7 @@ export class ManagePersonComponent implements OnInit {
   }
 
   public readerCodeTarget(){
-    var  socket = io('http://localhost:8089');
+    var  socket = io(environment.socket);
     socket = socket.connect();
     socket.on("_RID_READER_",(data:any)=>{
       this.arrayBufferToString(data.data , "UTF-8" , (datas:any)=>{
