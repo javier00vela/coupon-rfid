@@ -10,7 +10,7 @@ app.config['TOKEN'] = "RFID_CARD_PROJECT"
 app.config['MYSQL_DATABASE_USER'] = 'test'
 app.config['MYSQL_DATABASE_PASSWORD'] = 'test2'
 app.config['MYSQL_DATABASE_DB'] = 'coupon_db'
-app.config['MYSQL_DATABASE_HOST'] = 'localhost'
+app.config['MYSQL_DATABASE_HOST'] = 'db'
 
 
 #cors

@@ -1,6 +1,7 @@
 import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
 import { Component, OnInit } from '@angular/core';
 import { PersonService } from 'src/app/services/person.service';
+import { environment } from 'src/environments/environment';
 declare const io : any ;
 
 
@@ -66,7 +67,7 @@ export class ClientComponent implements OnInit {
   }
 
   public readerCodeTarget(){
-    var  socket = io('http://localhost:8089');
+    var  socket = io(environment.socket);
     socket = socket.connect();
     socket.on("_RID_READER_",(data:any)=>{
       this.arrayBufferToString(data.data , "UTF-8" , (datas:any)=>{
