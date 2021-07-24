@@ -2,6 +2,7 @@
 
 Programas como prerequisitos de instalación del proyecto:
 
+![RFID coupons](https://github.com/javier00vela/coupon-rfid/blob/master/docs/imagenes/login.png)
 
 > Docker Desktop - [Click para ingresar en la pagina de descarga](https://www.docker.com/products/docker-desktop)
 
@@ -37,6 +38,6 @@ foo@bar:~$ docker-compose up
 foo@bar:~$ pip install -r hardware/_python.hardware/requirements.txt
 foo@bar:~$ python hardware/_python.hardware/app.py
 ```
-
+![RFID coupons](https://github.com/javier00vela/coupon-rfid/blob/master/docs/imagenes/arduino_vista.jpeg)
 
 >[Click para descargar el manual de usuario y/o desarrollador](https://github.com/javier00vela/coupon-rfid/blob/master/docs/IEEE/projecto_rfid_diplomado.doc)
