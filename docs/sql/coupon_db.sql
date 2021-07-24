@@ -147,7 +147,7 @@ COMMIT;
 START TRANSACTION;
 USE `coupon_db`;
 INSERT INTO `coupon_db`.`user` (`id`, `email`, `password`, `person_id`) VALUES (1, 'admin@rfid.com', 'password', 1);
-
+/* Agregar aqui nuevos usuarios administradores*/
 COMMIT;
 
 
