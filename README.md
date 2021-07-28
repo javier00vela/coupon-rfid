@@ -1,8 +1,10 @@
-# Aplicativo de cupones RFID
+# Aplicativo | RFID Cupones
 
-Programas como prerequisitos de instalación del proyecto:
+
 
 ![RFID coupons](https://github.com/javier00vela/coupon-rfid/blob/master/docs/imagenes/login.png)
+
+Programas como prerequisitos de instalación del proyecto:
 
 > Docker Desktop - [Click para ingresar en la pagina de descarga](https://www.docker.com/products/docker-desktop)
 
