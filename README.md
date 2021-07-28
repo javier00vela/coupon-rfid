@@ -40,4 +40,4 @@ foo@bar:~$ python hardware/_python.hardware/app.py
 ```
 ![RFID coupons](https://github.com/javier00vela/coupon-rfid/blob/master/docs/imagenes/arduino_vista.jpeg)
 
->[Click para descargar el manual de usuario y/o desarrollador](https://github.com/javier00vela/coupon-rfid/blob/master/docs/IEEE/projecto_rfid_diplomado.doc)
+>[Click para descargar el manual de usuario y/o desarrollador](https://github.com/javier00vela/coupon-rfid/blob/master/docs/IEEE/projecto_rfid_diplomado.pdf)
