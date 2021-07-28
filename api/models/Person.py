@@ -38,9 +38,7 @@ class Person(DaoManager):
             sql = f' UPDATE coupon_person SET amount = "{data["amount_user"] - data["used"]}" WHERE id = "{data["id_coupon_product"]}" '
             print(sql)
             return self.execute(sql)
-
         
-
     def getCountTarget(self , rfid):
         sql = f' SELECT count(*) as cant FROM {self.TABLE}  where rfid = "{rfid}" and state = 1'
         return self.findCustoming(sql)

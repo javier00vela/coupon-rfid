@@ -8,46 +8,65 @@ class DaoManager(Db):
         super(Db,self).__init__()
 
     def findAll(self):
-        cur = self.get_connection().cursor()
-        cur.execute(f'select * from {self.TABLE}')
-        rows = [dict((cur.description[i][0], value) for i, value in enumerate(row)) for row in cur.fetchall()]
-        return rows
+        try:
+            cur = self.get_connection().cursor()
+            cur.execute(f'select * from {self.TABLE}')
+            rows = [dict((cur.description[i][0], value) for i, value in enumerate(row)) for row in cur.fetchall()]
+            return rows
+        except:
+            return []
     
     def findCustoming(self , sql):
-        cur = self.get_connection().cursor()
-        cur.execute(sql)
-        rows = [dict((cur.description[i][0], value) for i, value in enumerate(row)) for row in cur.fetchall()]
-        return rows
+        try:
+            cur = self.get_connection().cursor()
+            cur.execute(sql)
+            rows = [dict((cur.description[i][0], value) for i, value in enumerate(row)) for row in cur.fetchall()]
+            return rows
+        except:
+            return []
 
     def findById(self,id):
-        cur = self.get_connection().cursor()
-        cur.execute(f'select * from {self.TABLE} WHERE id = {id}')
-        rows = [dict((cur.description[i][0], value) for i, value in enumerate(row)) for row in cur.fetchall()][0]
-        return rows
+        try:
+            cur = self.get_connection().cursor()
+            cur.execute(f'select * from {self.TABLE} WHERE id = {id}')
+            rows = [dict((cur.description[i][0], value) for i, value in enumerate(row)) for row in cur.fetchall()][0]
+            return rows
+        except:
+            raise ValueError("Error al procesar la consulta")
 
 
     def updateById(self,id , field ,value):
-        cur = self.get_connection().cursor()
-        cur.execute(f'DELETE FROM {self.TABLE} WHERE id = {id} and {field} = "{value}"')
-        cur.commit()
+        try:
+            cur = self.get_connection().cursor()
+            cur.execute(f'DELETE FROM {self.TABLE} WHERE id = {id} and {field} = "{value}"')
+            cur.commit()
+        except:
+            return False
 
     def deleteById(self,id):
-        cur = self.get_connection().cursor()
-        cur.execute(f'DELETE FROM {self.TABLE} WHERE id = {id}')
-        cur.commit()
+        try:
+            cur = self.get_connection().cursor()
+            cur.execute(f'DELETE FROM {self.TABLE} WHERE id = {id}')
+            cur.commit()
+        except:
+            return False
 
     def deleteByField(self,field ,value):
-        cur = self.get_connection().cursor()
-        cur.execute(f'DELETE FROM {self.TABLE} WHERE {field} = "{value}"')
-        cur.commit()
-
+        try:
+            cur = self.get_connection().cursor()
+            cur.execute(f'DELETE FROM {self.TABLE} WHERE {field} = "{value}"')
+            cur.commit()
+        except:
+            return False
 
     def execute(self,sql):
-        cur = self.get_connection()
-        cursor = cur.cursor()
-        cursor.execute(sql)
-        cur.commit()
-        id = cursor.lastrowid
-        cur.close()
-        return id
-    
+        try:
+            cur = self.get_connection()
+            cursor = cur.cursor()
+            cursor.execute(sql)
+            cur.commit()
+            id = cursor.lastrowid
+            cur.close()
+            return id
+        except:
+            return False
